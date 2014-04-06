@@ -17,9 +17,9 @@ let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
   let p_button b =
     if b then "[X]" else "[ ]"
   in
-  Printf.sprintf ("%s\n%.f\n%s\n%s")
+  Printf.sprintf ("%s\n%d\n%s\n%s")
     (g##id |> Js.to_string)
-    (g##timestamp |> Js.to_float)
+    (g##timestamp)
     (g##axes |> Js.to_array |> print_array p_ax)
     (g##buttons |> Js.to_array |> print_array p_button)
 
