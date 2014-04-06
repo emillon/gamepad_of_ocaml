@@ -1,25 +1,6 @@
 module H = Dom_html
 let js = Js.string
 
-module Gamepad_types = struct
-
-  class type gamepad = object
-    method id : Js.js_string Js.t Js.prop
-  end
-
-end
-
-module Gamepad : sig
-  type gamepad = Gamepad_types.gamepad
-
-  val getGamepads : unit -> gamepad Js.t Js.js_array Js.t
-end = struct
-  type gamepad = Gamepad_types.gamepad
-
-  let getGamepads () =
-    Js.Unsafe.fun_call ( Js.Unsafe.variable "navigator.webkitGetGamepads" )[||]
-end
-
 let status =
   Js.Opt.get (H.document##getElementById(js"status")) (fun () -> assert false)
 

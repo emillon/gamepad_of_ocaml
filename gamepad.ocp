@@ -1,9 +1,26 @@
 comp = [ "-g" ]
+
+begin library "gamepad_lib"
+    has_asm = false
+    files = [
+        "gamepad.ml"
+        "gamepad_types.ml"
+    ]
+    requires = [
+        "js_of_ocaml"
+        "js_of_ocaml.camlp4-syntax"
+    ]
+end
+
 begin program "app"
     has_asm = false
     files = ["jsapp.ml"]
     syntax = "js_of_ocaml.camlp4-syntax"
-    requires = ["js_of_ocaml" "js_of_ocaml.camlp4-syntax"]
+    requires = [
+        "gamepad_lib"
+        "js_of_ocaml"
+        "js_of_ocaml.camlp4-syntax"
+    ]
 end
 
 begin
