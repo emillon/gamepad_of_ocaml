@@ -8,12 +8,16 @@ let display msg =
   status##innerHTML <- js msg
 
 let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
-  let print_double_array x =
-    "[" ^ String.concat ";" (List.map string_of_float (Array.to_list x)) ^ "]"
+  let print_array p x =
+    "[" ^ String.concat ";" (List.map p (Array.to_list x)) ^ "]"
   in
-  Printf.sprintf ("id='%s' axes=%s")
+  let p_button b =
+    if b then "[X]" else "[ ]"
+  in
+  Printf.sprintf ("id='%s' axes=%s buttons=%s")
     (Js.to_string g##id)
-    (g##axes |> Js.to_array |> print_double_array)
+    (g##axes |> Js.to_array |> print_array string_of_float)
+    (g##buttons |> Js.to_array |> print_array p_button)
 
 let runAnimation () =
   let gamepads = Gamepad.getGamepads () in
