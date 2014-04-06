@@ -9,14 +9,17 @@ let display msg =
 
 let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
   let print_array p x =
-    "[" ^ String.concat ";" (List.map p (Array.to_list x)) ^ "]"
+    String.concat " " (List.map p (Array.to_list x))
+  in
+  let p_ax f =
+    Printf.sprintf "% 3.2f" f
   in
   let p_button b =
     if b then "[X]" else "[ ]"
   in
-  Printf.sprintf ("id='%s' axes=%s buttons=%s")
+  Printf.sprintf ("%s\n%s\n%s")
     (Js.to_string g##id)
-    (g##axes |> Js.to_array |> print_array string_of_float)
+    (g##axes |> Js.to_array |> print_array p_ax)
     (g##buttons |> Js.to_array |> print_array p_button)
 
 let runAnimation () =
