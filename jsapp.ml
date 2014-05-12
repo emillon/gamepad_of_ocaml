@@ -15,7 +15,7 @@ let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
     Printf.sprintf "% 3.2f" f
   in
   let p_button b =
-    if b then "[X]" else "[ ]"
+    if Gamepad.button_is_pressed b then "[X]" else "[ ]"
   in
   Printf.sprintf ("%s\n%d\n%s\n%s")
     (g##id |> Js.to_string)
