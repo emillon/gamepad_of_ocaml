@@ -1,2 +1,2 @@
 let getGamepads () =
-  Js.Unsafe.fun_call (Js.Unsafe.variable "navigator.webkitGetGamepads") [||]
+  Js.Unsafe.eval_string ("navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads() : [])")
