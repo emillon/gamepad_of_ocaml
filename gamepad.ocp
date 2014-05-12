@@ -1,6 +1,6 @@
 comp = [ "-g" ]
 
-begin library "gamepad_lib"
+begin library "gamepad"
     has_asm = false
     files = [
         "gamepad.ml"
@@ -17,7 +17,7 @@ begin program "app"
     files = ["jsapp.ml"]
     syntax = "js_of_ocaml.camlp4-syntax"
     requires = [
-        "gamepad_lib"
+        "gamepad"
         "js_of_ocaml"
         "js_of_ocaml.camlp4-syntax"
     ]
