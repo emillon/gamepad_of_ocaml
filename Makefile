@@ -1,19 +1,12 @@
 .PHONY: all watch clean
 
-_obuild/app/app.js: _obuild/app/app.byte
-	js_of_ocaml -pretty $<
+_build/%:
+	ocamlbuild -use-ocamlfind -plugin-tag "package(js_of_ocaml.ocamlbuild)" $*
 
-_obuild/app/app.byte: *.ml *.mli
-	ocp-build
-
-all:
-	ocp-build
+all: _build/gamepad.cma _build/jsapp.js
 
 clean:
-	ocp-build -clean
-
-install: all
-	ocp-build install gamepad
+	ocamlbuild -clean
 
 watch:
 	make ; while true ; do inotifywait -qe close_write *.ml *.mli; clear ; make ; echo OK ; done

@@ -1,0 +1,2 @@
+true: package(js_of_ocaml)
+"jsapp.ml": syntax(camlp4o), package(js_of_ocaml.syntax)
