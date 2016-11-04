@@ -16,4 +16,5 @@ depends: [
   "ocamlbuild" {build}
   "ocamlfind" {build}
   "topkg" {build}
+  "js_of_ocaml" {>= "2.6"}
 ]
