@@ -1,0 +1,7 @@
+version = "%%VERSION_NUM%%"
+description = "Bindings for the JS Gamepad API"
+archive(byte) = "gamepad.cma"
+archive(native) = "gamepad.cmxa"
+plugin(byte) = "gamepad.cma"
+plugin(native) = "gamepad.cmxs"
+requires = "js_of_ocaml"
