@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Gamepad" rel="Chapter" href="Gamepad.html"><title>Gamepad</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Gamepad.html">Gamepad</a></h1>
+
+<pre><span class="keyword">module</span> Gamepad: <code class="code"><span class="keyword">sig</span></code> <a href="Gamepad.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Abstract button type. See <code class="code">button_is_pressed</code>.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEbutton"><span class="keyword">type</span> <code class="type"></code>button</span> </pre>
+
+
+<pre><span id="VALbutton_is_pressed"><span class="keyword">val</span> button_is_pressed</span> : <code class="type"><a href="Gamepad.html#TYPEbutton">button</a> -> bool</code></pre><div class="info ">
+Is a button pressed?<br>
+</div>
+
+<pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Gamepad.t-c.html">t</a></span> = <code class="code"><span class="keyword">object</span></code> <a href="Gamepad.t-c.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+A gamepad
+</div>
+
+<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">unit -> <a href="Gamepad.t-c.html">t</a> Js.t Js.js_array Js.t</code></pre><div class="info ">
+Get all the gamepads available.<br>
+</div>
+</body></html>
