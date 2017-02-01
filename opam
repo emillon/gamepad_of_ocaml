@@ -5,6 +5,7 @@ homepage: "https://github.com/emillon/gamepad_of_ocaml"
 bug-reports: "https://github.com/emillon/gamepad_of_ocaml/issues"
 license: "BSD-2"
 dev-repo: "https://github.com/emillon/gamepad_of_ocaml.git"
+doc: "https://emillon.github.io/gamepad_of_ocaml/doc"
 build: [
   [ "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" ]
 ]
