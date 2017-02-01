@@ -7,7 +7,7 @@ let status =
 let display msg =
   status##.innerHTML := js msg
 
-let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
+let string_of_gamepad (g:Gamepad.t Js.t) =
   let print_array p x =
     String.concat " " (List.map p (Array.to_list x))
   in
@@ -25,7 +25,7 @@ let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
 
 let _ =
   while%lwt true do
-    let gamepads = Gamepad.getGamepads () in
+    let gamepads = Gamepad.get () in
     let gamepad_def = Js.array_get gamepads 0 in
     Js.Optdef.iter gamepad_def (fun gamepad ->
       display (string_of_gamepad gamepad)
