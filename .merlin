@@ -1,0 +1,5 @@
+B _build/src
+
+PKG js_of_ocaml
+PKG js_of_ocaml.ppx
+PKG lwt.ppx
