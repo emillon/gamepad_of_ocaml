@@ -5,7 +5,7 @@ let status =
   Js.Opt.get (H.document##getElementById(js"status")) (fun () -> assert false)
 
 let display msg =
-  status##innerHTML <- js msg
+  status##.innerHTML := js msg
 
 let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
   let print_array p x =
@@ -18,15 +18,15 @@ let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
     if Gamepad.button_is_pressed b then "[X]" else "[ ]"
   in
   Printf.sprintf ("%s\n%d\n%s\n%s")
-    (g##id |> Js.to_string)
-    (g##timestamp)
-    (g##axes |> Js.to_array |> print_array p_ax)
-    (g##buttons |> Js.to_array |> print_array p_button)
+    (g##.id |> Js.to_string)
+    (g##.timestamp)
+    (g##.axes |> Js.to_array |> print_array p_ax)
+    (g##.buttons |> Js.to_array |> print_array p_button)
 
 let rec runAnimation () =
   let open Lwt in
   let gamepads = Gamepad.getGamepads () in
-  for i = 0 to gamepads##length - 1 do
+  for i = 0 to gamepads##.length - 1 do
     let go = Js.array_get gamepads i in
     Js.Optdef.iter go (fun g ->
       display (string_of_gamepad g)
