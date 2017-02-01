@@ -19,4 +19,5 @@ let () =
   Pkg.describe ~build "gamepad" @@ fun c ->
   Ok [
     Pkg.mllib "src/gamepad.mllib";
+    Pkg.test ~run:false ~auto:false "test/example.js";
   ]
