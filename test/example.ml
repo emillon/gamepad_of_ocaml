@@ -23,16 +23,12 @@ let string_of_gamepad (g:Gamepad_types.gamepad Js.t) =
     (g##.axes |> Js.to_array |> print_array p_ax)
     (g##.buttons |> Js.to_array |> print_array p_button)
 
-let rec runAnimation () =
-  let open Lwt in
-  let gamepads = Gamepad.getGamepads () in
-  for i = 0 to gamepads##.length - 1 do
-    let go = Js.array_get gamepads i in
-    Js.Optdef.iter go (fun g ->
-      display (string_of_gamepad g)
-    )
-  done;
-  Lwt_js_events.request_animation_frame () >>= runAnimation
-
 let _ =
-  runAnimation ()
+  while%lwt true do
+    let gamepads = Gamepad.getGamepads () in
+    let gamepad_def = Js.array_get gamepads 0 in
+    Js.Optdef.iter gamepad_def (fun gamepad ->
+      display (string_of_gamepad gamepad)
+    );
+    Lwt_js_events.request_animation_frame ()
+  done

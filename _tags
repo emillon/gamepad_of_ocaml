@@ -1,3 +1,4 @@
 true: package(js_of_ocaml)
 <src>: include
 <test/*>: package(js_of_ocaml.ppx)
+<test/*>: package(lwt.ppx)
