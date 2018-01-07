@@ -7,7 +7,7 @@ let build_cmd c os =
   let build_dir = Conf.build_dir c in
   let debug = Cmd.(on (Conf.debug c) (v "-tag" % "debug")) in
   let profile = Cmd.(on (Conf.profile c) (v "-tag" % "profile")) in
-  Cmd.(ocamlbuild % "-plugin-tag" % "package(js_of_ocaml.ocamlbuild)" 
+  Cmd.(ocamlbuild % "-plugin-tag" % "package(js_of_ocaml-ocamlbuild)"
     % "-use-ocamlfind" % "-classic-display" %% debug %% profile % "-build-dir" % build_dir)
 
 let cmd c os files =
