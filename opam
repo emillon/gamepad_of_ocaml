@@ -18,5 +18,7 @@ depends: [
   "ocamlfind" {build}
   "topkg" {build}
   "lwt"
-  "js_of_ocaml" {>= "2.6"}
+  "lwt_ppx"
+  "js_of_ocaml-lwt" {>= "3.0"}
+  "js_of_ocaml-ocamlbuild" {build}
 ]
